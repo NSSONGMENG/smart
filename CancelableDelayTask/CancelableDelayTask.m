@@ -1,28 +1,28 @@
 //
-//  AfterTask.m
+//  CancelableDelayTask.m
 //  ShadowDemo
 //
 //  Created by song.meng on 2023/9/6.
 //  Copyright © 2023 MOMO. All rights reserved.
 //
 
-#import "AfterTask.h"
+#import "CancelableDelayTask.h"
 
-@interface AfterTask()
+@interface CancelableDelayTask()
 
 @property (nonatomic, copy) dispatch_block_t block;
 
 @end
 
-@implementation AfterTask
+@implementation CancelableDelayTask
 
 /// 创建一个延时任务
 /// - Parameters:
 ///   - block: 任务块
 ///   - interval: 延时
 ///   - queue: 任务执行队列，默认为main
-+ (instancetype)afterTask:(void(^)(void))block delay:(CFTimeInterval)interval queue:(dispatch_queue_t)queue {
-    AfterTask *instance = [AfterTask new];
++ (instancetype)CancelableDelayTask:(void(^)(void))block delay:(CFTimeInterval)interval queue:(dispatch_queue_t)queue {
+    CancelableDelayTask *instance = [self new];
     
     instance.block = dispatch_block_create(0, block);
     dispatch_queue_t  q = queue ?: dispatch_get_main_queue();
