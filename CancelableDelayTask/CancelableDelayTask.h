@@ -29,6 +29,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// 取消执行
 - (void)cancel;
 
+/// 立即执行并取消delay
+- (void)doImmediatelyAndCancelDelay;
+
 @end
 
 NS_ASSUME_NONNULL_END
