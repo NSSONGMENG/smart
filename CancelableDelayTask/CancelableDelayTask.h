@@ -32,6 +32,8 @@ NS_ASSUME_NONNULL_BEGIN
 /// 立即执行并取消delay
 - (void)doImmediatelyAndCancelDelay;
 
+- (BOOL)isCanceled;
+
 @end
 
 NS_ASSUME_NONNULL_END

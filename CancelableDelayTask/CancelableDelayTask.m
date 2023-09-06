@@ -33,6 +33,8 @@
         // 多次cancel也没啥问题
         dispatch_block_cancel(self.block);
     }
+    
+    _oriBlock = nil;
 }
 
 - (void)doImmediatelyAndCancelDelay {
@@ -42,6 +44,10 @@
         _oriBlock();
         _oriBlock = nil;
     }
+}
+
+- (BOOL)isCanceled {
+    return (1 == dispatch_block_testcancel(self.block));
 }
 
 
